@@ -40,7 +40,7 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
 
   var ratio = 1.92;
   var height = 300;
-  var width = height * radio;
+  var width = height * ratio;
 
   if (settings.Size == 'manual') {
     width = parseInt(settings.Width);
