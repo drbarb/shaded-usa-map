@@ -18,6 +18,24 @@ function shadedUsaMapWidget_Init(elem, treeName) {
 
 function shadedUsaMapWidget_Draw(elem, data, settings) {
   var widget = CTS.Util.$(elem);
+
+  // Draw the style element
+  var styleElem = "<style>" +
+    ".shaded-usa-map-widget svg {\n" +
+    "  background: " + settings.BackgroundColor + ";\n" +
+    "}\n" +
+    ".shaded-usa-map-widget .shaded-usa-map-widget-states path {\n" +
+    "  stroke: " + settings.StateLineColor + ";\n" +
+    "  stroke-width:  " + settings.StateLineWidth + ";\n" +
+    "}\n" +
+    ".shaded-usa-map-widget #counties path {\n" +
+    "  stroke: " + settings.CountryLineColor + ";\n" +
+    "  stroke-width: " + settings.CountryLineWidth + ";\n" +
+    "}\n" +
+    "</style>";
+
+  CTS.Util.$('body').append(styleElem);
+
   var mapElem = widget.find(".shaded-usa-map-widget-map").first()[0];
 
   var ratio = 1.92;
