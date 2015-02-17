@@ -41,6 +41,7 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
   var ratio = 1.92;
   var height = 300;
   var width = height * ratio;
+  var scaleRatio = 1.9;
 
   if (settings.Size == 'manual') {
     width = settings.Width;
@@ -57,6 +58,9 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
       width = boxWidth;
       height = width / ratio;
     }
+
+    // 960w and 500h is the benchmark from the data file.
+    scaleRatio = width / 960.0;
 
     height = height + 'px';
     width = width + 'px';
@@ -83,8 +87,6 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
 
   var path = d3.geo.path();
 
-  // 960w and 500h is the benchmark from the data file.
-  var scaleRatio = widget.width() / 960.0;
 
   var svg = d3.select(mapElem)
     .append("svg")
