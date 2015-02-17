@@ -81,14 +81,15 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
   }
 
   var path = d3.geo.path();
- 
+  var scaleRatio = 1.0;
+
   var svg = d3.select(mapElem)
     .append("svg")
     .attr("width", width)
     .attr("height", height);
   var states = svg.append("g")
    .attr("class", "shaded-usa-map-widget-states " + settings.ColorFamily)
-   .attr("transform", "scale(" + ratio + ")");
+   .attr("transform", "scale(" + scaleRatio + ")");
 
   states.selectAll("path")
     .data(window.shadedUsaMapWidget_Data.features)
