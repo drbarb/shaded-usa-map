@@ -82,7 +82,9 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
   }
 
   var path = d3.geo.path();
-  var scaleRatio = 1.0;
+
+  // 960w and 500h is the benchmark from the data file.
+  var scaleRatio = widget.width() / 960.0;
 
   var svg = d3.select(mapElem)
     .append("svg")
