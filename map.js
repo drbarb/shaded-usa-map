@@ -49,15 +49,13 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
     // Figure out the biggest.
     var boxWidth = widget.width();
     var boxHeight = widget.height();
-    var boxWidthPrime = boxHeight * ratio;
-    var boxHeightPrime = boxWidth / ratio;
-    
-    if (boxWidthPrime < boxWidth) {
-      width = boxWidthPrime;
-      height = boxHeight;
-    } else {
+
+    height = widget.height();
+    width = height * ratio;
+
+    if (width > boxWidth) {
       width = boxWidth;
-      height = boxHeightPrime;
+      height = width / ratio;
     }
   }
 
