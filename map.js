@@ -43,8 +43,8 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
   var width = height * ratio;
 
   if (settings.Size == 'manual') {
-    width = parseInt(settings.Width);
-    height = parseInt(settings.Height);
+    width = settings.Width;
+    height = settings.Height;
   } else {
     // Figure out the biggest.
     var boxWidth = widget.width();
@@ -57,6 +57,9 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
       width = boxWidth;
       height = width / ratio;
     }
+
+    height = height + 'px';
+    width = width + 'px';
   }
 
   var stateMappings = new Object();
