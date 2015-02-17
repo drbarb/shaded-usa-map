@@ -20,10 +20,29 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
   var widget = CTS.Util.$(elem);
   var mapElem = widget.find(".shaded-usa-map-widget-map").first()[0];
 
-  var ratio = 1.0;
-  var width = settings.Width;
-  var height = settings.Height;
-  var aspectRatio = (settings.Height * 1.0) / settings.Width;
+  var ratio = 1.92;
+  var height = 300;
+  var width = height * radio;
+
+  if (settings.Size == 'manual') {
+    width = parseInt(settings.Width);
+    height = parseInt(settings.Height);
+  } else {
+    // Figure out the biggest.
+    var boxWidth = widget.width();
+    var boxHeight = widget.height();
+    var boxWidthPrime = boxHeight * ratio;
+    var boxHeightPrime = boxWidth / ratio;
+    
+    if (boxWidthPrime < boxWidth) {
+      width = boxWidthPrime;
+      height = boxHeight;
+    } else {
+      width = boxWidth;
+      height = boxHeightPrime;
+    }
+  }
+
   var stateMappings = new Object();
   var values = [];
 
