@@ -87,7 +87,6 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
 
   var path = d3.geo.path();
 
-
   var svg = d3.select(mapElem)
     .append("svg")
     .attr("width", width)
