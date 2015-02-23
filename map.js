@@ -103,7 +103,7 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
       .attr("class", quantize);
 }
 
-function shadedUsaMapWidget_PreInit(ctsTraget, ctsSource, ctsRelation) {
+function shadedUsaMapWidget_PreInit(ctsTarget, ctsSource, ctsRelation) {
   var widgetContainer = ctsTarget.value;
   // Need to wait for all the widget dependencies to load. This should be
   // a standard feature built in.
