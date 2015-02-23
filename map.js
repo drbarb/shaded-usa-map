@@ -103,21 +103,15 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
       .attr("class", quantize);
 }
 
-
-CTS.status.libraryLoaded.then(function() {
-  CTS.on('cts-received-graft', function(evt) {
-    var doit = function() {
-      var widgetContainer = evt.target.value;
+function shadedUsaMapWidget_PreInit(ctsTraget, ctsSource, ctsRelation) {
+  var widgetContainer = ctsTarget.value;
+  var tryIt = function() {
+    if ((typeof d3 != 'undefined') && (typeof window.shadedUsaMapWidget_Data != 'undefined')) {
       shadedUsaMapWidget_Init(widgetContainer);
-    };
-    var tryIt = function() {
-      if ((typeof d3 != 'undefined') && (typeof window.shadedUsaMapWidget_Data != 'undefined')) {
-        doit();
-      } else {
-        setTimeout(tryIt, 100);
-      }
+    } else {
+      setTimeout(tryIt, 100);
     }
-    tryIt();
-  })
-});
+  }
+  tryIt();
+}  
 
