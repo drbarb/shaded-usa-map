@@ -105,6 +105,8 @@ function shadedUsaMapWidget_Draw(elem, data, settings) {
 
 function shadedUsaMapWidget_PreInit(ctsTraget, ctsSource, ctsRelation) {
   var widgetContainer = ctsTarget.value;
+  // Need to wait for all the widget dependencies to load. This should be
+  // a standard function.
   var tryIt = function() {
     if ((typeof d3 != 'undefined') && (typeof window.shadedUsaMapWidget_Data != 'undefined')) {
       shadedUsaMapWidget_Init(widgetContainer);
