@@ -21,4 +21,4 @@
 @js relative(map.js);
 @gsheet shadedUsaMapDatasource http://cloudstitch.io/visualizations/shaded-usa-map/datasource/shadedUsaMapDatasource;
 
-body|*[widget="visualizations/shaded-usa-map"] :graft shaded-usa-map|#shaded-usa-map;
+body|*[widget="visualizations/shaded-usa-map"] {"after": "shadedUsaMapWidget_PreInit"} :graft shaded-usa-map|#shaded-usa-map;
